@@ -11,9 +11,7 @@ const Login = ({ history }) => {
   async function handleSignIn(e) {
     e.preventDefault();
     const r = await api.post("/users/auth", { email_usuario, senha_usuario });
-    if (!email_usuario || !senha_usuario) {
-      console.log(r.status);
-    }
+    console.log(r)
   }
 
   return (

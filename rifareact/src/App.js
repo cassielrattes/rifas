@@ -4,7 +4,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Login from "./pages/Login/Login";
+import Login from "./pages/Login";
 
 
 
@@ -15,7 +15,7 @@ const App = () => {
       <Router>
         <Switch>
           {/* <Route exact path="/home" component={Home} /> */}
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/" component={Login} />
           {/* <Route exact path="/register" component={Register} /> */}
         </Switch>
       </Router>

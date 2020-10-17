@@ -8,7 +8,7 @@ const routers = express.Router();
 routers.post("/auth", (req, res) => {
     const user = new User(req.body);
     new UserDAO().authenticate(user, (r) => {
-        res.json(r);
+        res.json(r)
     })
 })
 
