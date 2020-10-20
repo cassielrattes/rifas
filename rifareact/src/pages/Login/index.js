@@ -12,8 +12,6 @@ const Login = ({ history }) => {
     e.preventDefault();
     const r = await api.post("/users/auth", { email_usuario, senha_usuario });
     if (r.data !== '') {
-      const re = await api.get("/users/admin")
-      console.log(re)
     } else {
       alert("Usuário/Senha Errada");
     }
