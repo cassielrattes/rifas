@@ -22,8 +22,9 @@ routers.get("/", (req, res) => {
 })
 
 routers.get("/admin", (req, res) => {
-    const { isAdmin } = req.session;
-    console.log(isAdmin);
+    const sess = req.session;
+    if (sess.isAdmin) res.json('admin');
+    res.json('plebeu')
 })
 
 

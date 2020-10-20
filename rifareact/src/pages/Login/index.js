@@ -12,8 +12,8 @@ const Login = ({ history }) => {
     e.preventDefault();
     const r = await api.post("/users/auth", { email_usuario, senha_usuario });
     if (r.data !== '') {
-      localStorage.setItem('token', r.data.id_usuario)
-      history.push('/home');
+      const re = await api.get("/users/admin")
+      console.log(re)
     } else {
       alert("Usuário/Senha Errada");
     }
