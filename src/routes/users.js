@@ -8,7 +8,10 @@ const routers = express.Router();
 routers.post("/auth", (req, res) => {
     const user = new User(req.body);
     new UserDAO().authenticate(user, (r) => {
-        res.json(r)
+        console.log(req.session)
+        const { id_usuario, is_admin } = r;
+        if (is_admin !== 0) req.session['isAdmin'] = true;
+        res.json(id_usuario);
     })
 })
 
@@ -17,6 +20,12 @@ routers.get("/", (req, res) => {
         res.json(users);
     })
 })
+
+routers.get("/admin", (req, res) => {
+    const { isAdmin } = req.session;
+    console.log(isAdmin);
+})
+
 
 routers.post("/register", (req, res) => {
     const user = new User(req.body);

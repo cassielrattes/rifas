@@ -11,26 +11,29 @@ const Login = ({ history }) => {
   async function handleSignIn(e) {
     e.preventDefault();
     const r = await api.post("/users/auth", { email_usuario, senha_usuario });
-    console.log(r)
+    if (r.data !== '') {
+      localStorage.setItem('token', r.data.id_usuario)
+      history.push('/home');
+    } else {
+      alert("Usuário/Senha Errada");
+    }
   }
 
   return (
-    <div className="login-dark">
+    <div class="container">
       <form onSubmit={handleSignIn}>
-        <h2 className="sr-only">Login Form</h2>
-        <div className="illustration">
-          <i class="fa fa-lock"></i>
-        </div>
         <div className="form-group">
+          <label for="email">E-mail</label>
           <input
             className="form-control"
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="E-mail"
             onChange={e => setEmail(e.target.value)}
           />
         </div>
         <div className="form-group">
+          <label for="password">Senha</label>
           <input
             className="form-control"
             type="password"
@@ -40,15 +43,15 @@ const Login = ({ history }) => {
           />
         </div>
         <div className="form-group">
-          <button className="btn btn-primary btn-block" type="submit">
-            <strong>SignIn</strong>
-          </button>
+
+          <button type="submit" className="btn btn-danger">Enviar</button>
         </div>
-        <Link to="/" className="forgot">
-          Forgot your email or password?
-        </Link>
+
       </form>
+      <Link to="/register" className="btn btn-primary">Cadastre-se</Link>
+
     </div>
+
   );
 };
 
