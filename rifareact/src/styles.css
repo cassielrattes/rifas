@@ -1,0 +1,49 @@
+form {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+
+}
+
+form div {
+    background: #000;
+    padding: 40px;
+    color: #fff;
+    border: 15px solid #c0c0c0;
+    box-shadow: 20px 20px 15px #000;
+    border-radius: 20px;
+}
+
+form input {
+    display: block;
+    padding: 4px 0;
+    width: 418px;
+    text-indent: 5px;
+}
+
+form label {
+    margin: 10px 0;
+
+}
+
+.button {
+    padding: 10px;
+
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    display: block
+}
+
+.button.blue {
+    border: 2px solid blue;
+    background: blue;
+
+}
+
+.button.red {
+    border: 2px solid red;
+    background: red;
+}

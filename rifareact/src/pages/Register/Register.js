@@ -23,43 +23,19 @@ const Register = ({ history }) => {
     return (
         <div class="container">
             <form onSubmit={handleSignIn}>
-                <div className="form-group">
-                    <label htmlFor="name">Nome</label>
-                    <input
-                        className="form-control"
-                        type="name"
-                        name="name"
-                        placeholder="Nome"
-                        onChange={e => setName(e.target.value)}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">E-mail</label>
-                    <input
-                        className="form-control"
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        onChange={e => setEmail(e.target.value)}
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="password">Senha</label>
-                    <input
-                        className="form-control"
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        onChange={e => setPassword(e.target.value)}
-                    />
-                </div>
-                <div className="form-group">
-                    <button type="submit" className="btn btn-danger">Enviar</button>
+                <div>
+                    <h1>Cadastre-se</h1>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" onChange={e => setName(e.target.value)} required />
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" onChange={e => setEmail(e.target.value)} required />
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" onChange={e => setPassword(e.target.value)} required />
+                    <button type="submit" className="button red">Enviar</button>
+                    <Link to="/" className="button blue">Já possui conta?</Link>
                 </div>
 
             </form>
-            <Link to="/" className="btn btn-primary">Já está cadastrado?</Link>
         </div>
 
     );

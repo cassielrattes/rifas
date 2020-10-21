@@ -10,7 +10,7 @@ const sair = async () => {
 
 const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <a className="navbar-brand" href="#/">Navbar</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@ const Navbar = () => {
                         <a className="nav-link" href="#/criarifa">Criar Rifa <span className="sr-only">(current)</span></a>
                     </li>
                     <li className="nav-item ml-auto">
-                        <button className="nav-link" onClick={() => sair()}>Sair</button>
+                        <button className="btn btn-dark" onClick={() => sair()}>Sair</button>
                     </li>
 
                 </ul>
