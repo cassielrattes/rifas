@@ -24,7 +24,7 @@ const Register = ({ history }) => {
         <div class="container">
             <form onSubmit={handleSignIn}>
                 <div className="form-group">
-                    <label for="name">Nome</label>
+                    <label htmlFor="name">Nome</label>
                     <input
                         className="form-control"
                         type="name"
@@ -34,7 +34,7 @@ const Register = ({ history }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label for="email">E-mail</label>
+                    <label htmlFor="email">E-mail</label>
                     <input
                         className="form-control"
                         type="email"
@@ -45,7 +45,7 @@ const Register = ({ history }) => {
                 </div>
 
                 <div className="form-group">
-                    <label for="password">Senha</label>
+                    <label htmlFor="password">Senha</label>
                     <input
                         className="form-control"
                         type="password"

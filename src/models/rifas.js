@@ -6,6 +6,7 @@ class Rifa {
 
     constructor(ObjUser) {
         this.nome_rifa = '';
+        this.foto_rifa = '';
         Object.assign(this, ObjUser);
     }
 

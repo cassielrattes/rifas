@@ -12,16 +12,20 @@ const Login = ({ history }) => {
     e.preventDefault();
     const r = await api.post("/users/auth", { email_usuario, senha_usuario });
     if (r.data !== '') {
+      const admin = api.get("/users/admin")
+      if (admin === 'admin') {
+        history.push("/home")
+      }
     } else {
       alert("Usuário/Senha Errada");
     }
   }
 
   return (
-    <div class="container">
+    <div className="container">
       <form onSubmit={handleSignIn}>
         <div className="form-group">
-          <label for="email">E-mail</label>
+          <label htmlFor="email">E-mail</label>
           <input
             className="form-control"
             type="email"
@@ -31,7 +35,7 @@ const Login = ({ history }) => {
           />
         </div>
         <div className="form-group">
-          <label for="password">Senha</label>
+          <label htmlFor="password">Senha</label>
           <input
             className="form-control"
             type="password"

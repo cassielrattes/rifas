@@ -1,28 +1,29 @@
-import React, { useEffect } from 'react'
-import { Redirect } from "react-router-dom";
+import React from 'react'
+import api from '../../services/api';
+// import { Redirect } from "react-router-dom";
 
-
-const sair = () => {
-    localStorage.removeItem('token');
+const sair = async () => {
+    await api.delete("/users/sair");
 }
+
 
 
 const Navbar = () => {
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <a className="navbar-brand" href="#/">Navbar</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-                    </li>
+            <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav">
 
-                    {localStorage.getItem('token') !== null ? (<li class="nav-item ml-auto">
-                        <button class="nav-link" onClick={() => sair()}>Sair</button>
-                    </li>) : <Redirect to="/" />}
+                    <li className="nav-item active">
+                        <a className="nav-link" href="#/criarifa">Criar Rifa <span className="sr-only">(current)</span></a>
+                    </li>
+                    <li className="nav-item ml-auto">
+                        <button className="nav-link" onClick={() => sair()}>Sair</button>
+                    </li>
 
                 </ul>
             </div>
