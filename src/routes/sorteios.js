@@ -10,6 +10,14 @@ routers.get("/", (req, res) => {
     })
 })
 
+routers.get("/:id_rifa", (req, res) => {
+    const sorteios = req.params.id_rifa; 
+    console.log(sorteios);
+    DataUtils.innerJoin(sorteios, (sorteios) => {
+        res.json(sorteios);
+    })
+})
+
 routers.post("/", (req, res) => {
     const sorteios = new Sorteio(req.body);
     DataUtils.insert(sorteios, Sorteio.table, (sorteios) => {

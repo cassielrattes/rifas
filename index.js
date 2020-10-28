@@ -3,6 +3,7 @@ const session = require('express-session');
 const cors = require('cors');
 const bodyParser = require("body-parser");
 const morgan = require('morgan');
+const path = require("path")
 
 
 const app = express();
@@ -20,6 +21,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(morgan());
 
+app.get('/', function(req, res) {
+    res.sendFile( path.resolve(__dirname + '/public/index.html') );
+});
+
+app.get('/qrcode.js', function(req, res) {
+    res.sendFile( path.resolve(__dirname + '/public/qrcode.js') );
+});
 
 app.use("/", require("./src/routes/"));
 

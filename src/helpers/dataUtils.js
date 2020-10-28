@@ -28,6 +28,25 @@ class DataUtils {
             cb(res);
         })
     }
+
+    static getById(id, cb) {
+        connection.query(`select * from rifa where id_rifa=${id};
+        `, (err, res) => {
+            if(err) throw err;
+            cb(res);
+        })
+    }
+
+    static innerJoin(id, cb) {
+        connection.query(`select * from sorteio
+        inner join usuario on sorteio.id_usuario = usuario.id_usuario
+        inner join rifa on sorteio.id_rifa = rifa.id_rifa
+        where rifa.id_rifa=${id};
+        `, (err, res) => {
+            if(err) throw err;
+            cb(res);
+        })
+    }
 }
 
 module.exports = DataUtils;

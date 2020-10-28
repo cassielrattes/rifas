@@ -9,9 +9,15 @@ const routers = express.Router();
 routers.post("/auth", (req, res) => {
     const user = new User(req.body);
     new UserDAO().authenticate(user, (r) => {
-        const { is_admin, id_usuario } = r
-        if (is_admin) req.session.isAdmin = 1;
-        res.json(id_usuario);
+        if(r) {
+            const { is_admin, id_usuario } = r
+            req.session.id_usuario = id_usuario;
+            if (is_admin) req.session.isAdmin = 1 ;
+            res.json(id_usuario);
+        } else {
+            res.status(401).send("Error")
+        } 
+        
     })
 })
 

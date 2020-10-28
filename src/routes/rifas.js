@@ -10,6 +10,15 @@ routers.get("/", (req, res) => {
     })
 })
 
+routers.get("/:id_rifa", (req, res) => {
+    const rifas= req.params.id_rifa;
+    console.log(rifas);
+    DataUtils.getById(rifas, (rifas) => {
+        res.json(rifas);
+    })
+})
+
+
 routers.post("/", (req, res) => {
     const rifas = new Rifa(req.body);
     DataUtils.insert(rifas, Rifa.table, (rifas) => {

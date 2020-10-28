@@ -12,10 +12,11 @@ const Login = ({ history }) => {
     e.preventDefault();
     const r = await api.post("/users/auth", { email_usuario, senha_usuario });
     if (r.data !== '') {
-      const admin = api.get("/users/admin")
-      if (admin === 'admin') {
-        history.push("/home")
-      }
+      const admin = await api.get("/users/admin")
+      if (admin.data === 'admin') {
+        history.push("/criarifa")
+      } 
+      history.push("/criarifa")
     } else {
       alert("Usuário/Senha Errada");
     }

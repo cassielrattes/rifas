@@ -1,14 +1,26 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import api from '../../services/api';
 // import { Redirect } from "react-router-dom";
 
-const sair = async () => {
-    await api.delete("/users/sair");
-}
+
 
 
 
 const Navbar = () => {
+    const [admin, setAdmin] = useState("");
+
+
+useEffect(() => {
+    async function verificar() {
+        await api.get("/users/admin").then((result) => {
+            setAdmin(result.data)
+          })
+    }
+    verificar();
+}, [])
+  
+     
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <a className="navbar-brand" href="#/">Navbar</a>
@@ -21,10 +33,7 @@ const Navbar = () => {
                     <li className="nav-item active">
                         <a className="nav-link" href="#/criarifa">Criar Rifa <span className="sr-only">(current)</span></a>
                     </li>
-                    <li className="nav-item ml-auto">
-                        <button className="btn btn-dark" onClick={() => sair()}>Sair</button>
-                    </li>
-
+              
                 </ul>
             </div>
         </nav>
